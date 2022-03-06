@@ -6,10 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ken Rathbun Portfolio Website</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"  crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Fraunces:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./resources/css/styles.css">
 </head>
-<body>
-    
+<body class="bg">
+    <header class="primary-header flex">
+        <div class="logo">
+            <a href="index.html">&lt;devken&gt;</devken></a>
+        </div>
+        <nav>
+            <ul class="primary-navigation flex">
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="contact.html">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Introduction -->
+    <section class="intro" id="home">
+        <h1 class="section__title section__title--intro">
+            Hi, I am <strong>Ken Rathbun</strong>
+        </h1>
+        <p class="section__subtitle section__subtitle--intro">full stack dev</p>
+        <img src="/resources/images/temp_pfp.png" alt="a picture of Ken Rathbun">
+    </section>
+
+    <!-- About Me -->
+    <section class="about" id="about">
+        <h2 class="section__title section__title--about">
+            Who I am
+        </h2>
+        <p class="section__subtitle section__subtitle--about">
+            Designer & Developer based out of SD
+        </p>
+
+        <div class="about-me__body">
+            <p></p>
+            <p></p>
+        </div>
+
+        <img src="/resources/images/puffer.png" alt="Ken wearing a hat and puffer jacket">
+    </section>
+
+    <!-- Projects -->
+    <section class="projects" id="projects">
+        <h2 class="section__title section__title--projects">
+            My Projects
+        </h2>
+        <p class="section__subtitle"></p>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <a href="kenrathbun@yahoo.com" class="footer-link">kenrathbun@yahoo.com</a>
+        <ul class="social-list">
+            <li class="social-list__item"><a href="" class="social-list__link"></a>1</li>
+            <li class="social-list__item"><a href="" class="social-list__link"></a>2</li>
+            <li class="social-list__item"><a href="" class="social-list__link"></a>3</li>
+            <li class="social-list__item"><a href="" class="social-list__link"></a>4</li>
+        </ul>
+    </footer>
 </body>
 </html>

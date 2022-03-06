@@ -1,0 +1,128 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* ----------------- */
+/* CUSTOM PROPERTIES */
+/* ----------------- */
+:root {
+    --ff-sans: 'Fraunces', sans-serif;
+    --ff-mono: 'Fira Code', monospace;
+
+    --fw-reg: 400;
+    --fw-bold: 900;
+
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    /* --fs-h3: 1.25rem; */
+    --fs-body: 1rem;
+
+    --bg-img: url(/resources/images/pier-bg.jpeg);
+
+    --gap: 2rem;
+}
+
+@media (min-width: 800px) {
+    :root {
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.5rem;
+        --fs-body: 1.25 rem;
+    }
+}
+
+/* --------------- */
+/* UTILITY CLASSES */
+/* --------------- */
+
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+
+/* -------------- */
+/* GENERAL STYLES */
+/* -------------- */
+
+html {
+    scroll-behavior: smooth;
+    font-family: var(--ff-mono);
+}
+
+h1 {
+    font-weight: var(--fs-h1);
+}
+
+h2 {
+    font-weight: var(--fs-h2);
+}
+
+p {
+    font-weight: var(--fs-body);
+}
+
+a {
+    
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+/* .bg {
+    
+    background: var(--bg-img);
+    
+    height: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+/* ////////////// */
+/* Primary Header */
+
+.logo {
+    margin: 2rem;
+}
+
+.primary-header {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.primary-navigation {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.primary-navigation a {
+    font-weight: 700;
+    margin-inline-end: 0.75em;
+}
+
+@media (max-width: 35em) {
+    .primary-navigation {
+        position: fixed;
+        inset: 0 0 0 30%;
+
+        flex-direction: column;
+        padding: min(30vh, 10rem) 2em;
+        background: hsl(0 0% 0% / 0.25);
+        /* background: #d2a1eb4f; */
+        backdrop-filter: blur(1rem);
+        -webkit-backdrop-filter: blur(1rem);
+    }
+}
+
+
