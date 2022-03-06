@@ -1,23 +1,24 @@
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
 /* ----------------- */
 /* CUSTOM PROPERTIES */
 /* ----------------- */
 :root {
-    --ff-sans: 'Fraunces', sans-serif;
-    --ff-mono: 'Fira Code', monospace;
+    --ff-primary: 'Fraunces', sans-serif;
+    --ff-secondary: 'Fira Code', monospace;
 
     --fw-reg: 400;
     --fw-bold: 900;
 
+    --clr-light: #fff;
+    --clr-dark: #303030;
+    --clr-accent: hsl(210, 82%, 48%);
+
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
-    /* --fs-h3: 1.25rem; */
+    --fs-h3: 1.25rem;
     --fs-body: 1rem;
+
+    --bs: .25em 0.25em 0.75em rgba(0, 0, 0, .25),
+            .125em .125em 0.25em rgba(0, 0, 0, .15);
 
     --bg-img: url(/resources/images/pier-bg.jpeg);
 
@@ -46,36 +47,83 @@
 /* GENERAL STYLES */
 /* -------------- */
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 html {
     scroll-behavior: smooth;
-    font-family: var(--ff-mono);
 }
 
-h1 {
-    font-weight: var(--fs-h1);
+body {
+    background: var(--clr-light);
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    margin: 0;
+    color: var(--clr-dark);
+    line-height: 1.6;
 }
 
-h2 {
-    font-weight: var(--fs-h2);
+section {
+    padding: 5em 2em;
 }
 
-p {
-    font-weight: var(--fs-body);
+img {
+    display: block;
+    max-width: 100%;
 }
 
-a {
-    
-    color: black;
-    text-decoration: none;
-    font-weight: 500;
-    white-space: nowrap;
-    overflow: hidden;
+strong { font-weight: var(--fw-bold); }
+
+/* ---------- */
+/* TYPOGRAPHY */
+/* ---------- */
+
+h1,
+h2,
+h3 {
+    line-height: 1;
+    margin: 0;
 }
 
-html,
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+.section__title {
+    margin-bottom:  .25em;
+}
+
+.section__title--intro {
+    font-weight: var(--fw-reg);
+}
+
+.section__title--intro strong {
+    display: block;
+}
+
+.section__subtitle {
+    margin: 0;
+    font-size: var(--fs-h3);
+    margin-bottom: 1em;
+}
+
+.section__subtitle--intro {
+    background: var(--clr-accent);
+    padding: .25em 1em;
+    color: var(--clr-light);
+    font-family: var(--ff-secondary);
+}
+
+
+/* Background Image */
+
+/* html,
 body {
     height: 100%;
-}
+} */
 
 /* .bg {
     
@@ -88,16 +136,25 @@ body {
     background-size: cover;
 } */
 
-/* ////////////// */
 /* Primary Header */
-
-.logo {
-    margin: 2rem;
-}
 
 .primary-header {
     align-items: center;
     justify-content: space-between;
+    z-index: 999;
+}
+
+.primary-header a {
+    font-family: var(--ff-secondary);
+    color: black;
+    text-decoration: none;
+    font-weight: var(--fw-bold);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.logo {
+    margin: 2rem;
 }
 
 .primary-navigation {
@@ -111,7 +168,7 @@ body {
     margin-inline-end: 0.75em;
 }
 
-@media (max-width: 35em) {
+@media (max-width: 37.5em) {
     .primary-navigation {
         position: fixed;
         inset: 0 0 0 30%;
@@ -124,5 +181,104 @@ body {
         -webkit-backdrop-filter: blur(1rem);
     }
 }
+
+/* Intro Section */
+
+.intro {
+    position: relative;
+    z-index: -1;
+}
+
+.intro__img {
+    box-shadow: var(--bs);
+}
+
+@media (min-width: 600px) {
+    .intro {
+        display: grid;
+        width: min-content;
+        margin: 0 auto;
+        column-gap: 1em;
+        grid-template-areas: 
+            "img title"
+            "img subtitle";
+        grid-template-columns: min-content max-content;
+    }
+
+    .intro__img {
+        grid-area: img;
+        max-width: 250px;
+        position: relative;
+    }
+
+    .section__subtitle--intro {
+         align-self: start;
+         grid-column: -1 / 1;
+         grid-row: 2;
+         text-align: right;
+         position: relative;
+         left: -1.5em;
+         width: calc(100% + 1.5em);
+    }
+}
+
+/* About Me section */
+
+.about-me {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--clr-accent);
+}
+
+.about-me__img {
+    box-shadow: var(--bs);
+}
+
+.section__subtitle--about {
+    background: var(--clr-light);
+    padding: .25em 1em;
+    color: var(--clr-dark);
+    font-family: var(--ff-secondary);
+}
+
+.section__title--about,
+.about-me__body {
+    color: var(--clr-light);
+}
+
+@media (min-width: 600px) {
+    .about-me {
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        grid-template-areas: 
+            "title img"
+            "subtitle img"
+            "text img";
+        column-gap: 2em;
+    }
+
+    .section__title--about {
+        grid-area: title;
+    }
+
+    .section__subtitle--about {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        position: relative;
+        left: -1em;
+        width: calc(100% + 2em);
+        padding-left: 1em;
+        padding-right: calc(350px + 2em);
+    }
+
+    .about-me__img {
+        grid-area: img;
+        position: relative;
+    }
+}
+
+
+
+
 
 
