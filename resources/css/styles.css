@@ -75,7 +75,11 @@ img {
     max-width: 100%;
 }
 
-strong { font-weight: var(--fw-bold); }
+strong { font-weight: var(--fw-bold); } 
+
+:focus {
+    outline: 3px solid var(--clr-accent);
+}
 
 /* ---------- */
 /* TYPOGRAPHY */
@@ -245,6 +249,7 @@ body {
     padding: .25em 1em;
     color: var(--clr-dark);
     font-family: var(--ff-secondary);
+    font-weight: var(--fw-bold);
 }
 
 .section__title--about,
@@ -322,7 +327,7 @@ body {
 /* Footer */
 
 footer {
-    background: var(--clr-dark);
+    background: #111;
     color: var(--clr-accent);
     text-align: center;
     padding: 2.5em 0 0;
@@ -356,7 +361,7 @@ footer a {
 }
 
 .social-list__link {
-    padding: 1em;
+    padding: 0.75em;
 }
 
 
